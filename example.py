@@ -1,5 +1,5 @@
 from differential_privacy import DifferentialPrivacy
-from differential_privacy import sensitivity
+from differential_privacy import sensitivity_sum, sensitivity_mean
 import numpy as np
 
 if __name__ == "__main__":
@@ -9,7 +9,7 @@ if __name__ == "__main__":
     data = np.random.normal(loc=50, scale=10, size=1000)  # Data with 100 values
 
     true_sum = sum(data)
-    priv_sum = dp.privatize_sum(data, sensitivity(data))
+    priv_sum = dp.privatize_sum(data, sensitivity_sum(data))
 
     print("======= SUM =======")
     print("True value for sum: {}".format(true_sum))
@@ -17,7 +17,7 @@ if __name__ == "__main__":
     print("Noise value: {}".format(abs(priv_sum - true_sum)))
 
     true_mean = np.mean(data)
-    priv_mean = dp.privatize_mean(data, sensitivity(data))
+    priv_mean = dp.privatize_mean(data, sensitivity_mean(data))
 
     print("======= MEAN =======")
     print("True value for mean: {}".format(true_mean))

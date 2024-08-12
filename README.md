@@ -39,6 +39,8 @@ The privacy budget, known as epsilon, controls how much privacy protection is ap
 
 If epsilon is large, less noise is added, which means more information can leak and privacy is reduced. If epsilon is small (but still greater than zero), more noise is added, which reduces information leakage and increases privacy protection.
 
+> Epsilon = 1 is a reference value for a strict privacy-preserving mechanism. However, the correct choice is a case by case decision. 
+
 ### Sensitivity
 
 Sensitivity determines the amount of noise needed in the DP mechanism. To calculate sensitivity, you need to find the maximum possible change in the result.
@@ -50,7 +52,7 @@ Sensitivity determines the amount of noise needed in the DP mechanism. To calcul
 **Global sensitivity** can have a huge impact on how useful certain queries are. For instance, in a sum query where there's no limit on the values in the dataset, global sensitivity can be infinite because any entry could add any amount to the total.
 
 
-> In this project, we're currently using **Local sensitivity**
+> In this project, we're using **Local sensitivity**.
 
 
 ## Next steps
